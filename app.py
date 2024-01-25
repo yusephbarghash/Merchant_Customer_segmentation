@@ -1,10 +1,20 @@
 
 import pandas as pd
 import numpy as np
+import seaborn as sns
+import plotly.express as px
 import streamlit as st
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.cluster import KMeans, DBSCAN
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import silhouette_score
+from sklearn.compose import ColumnTransformer
+import warnings
 
-rfm = pd.read_csv('rfm_clusters.csv')
-top_cluster_Mer = pd.read_csv('top_cluster_Mer.csv')
+# Read the CSV file 'rfm_clusters.csv' into a DataFrame named 'rfm'
+rfm = pd.read_csv('data/rfm_clusters.csv')
+# Read the CSV file 'top_cluster_Mer.csv' into a DataFrame named 'top_cluster_Mer'
+top_cluster_Mer = pd.read_csv('data/top_cluster_Mer.csv')
 
 def main():
     st.title('Check your points: 😊')
